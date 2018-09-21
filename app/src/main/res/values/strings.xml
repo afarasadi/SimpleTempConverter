@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TempConverterApp</string>
+    <string name="degree_sybol">°</string>
+    <string name="result">%.2f°%c</string>
+
+    <string-array name="temp_symbol">
+        <item>Celcius</item>
+        <item>Reamur</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+</resources>

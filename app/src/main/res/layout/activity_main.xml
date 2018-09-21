@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal">
+        <Spinner
+            android:layout_weight="1"
+            android:id="@+id/spinner"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:gravity="center_vertical"
+            android:spinnerMode="dialog">
+        </Spinner>
+
+        <EditText
+            android:id="@+id/et_number"
+            android:layout_width="150dp"
+            android:inputType="numberDecimal"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:hint="enter a number..."
+            android:paddingLeft="5dp" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="convert" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:padding="50dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/top_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_f"
+            android:padding="25dp"
+            android:textColor="@color/Fahrenhiet"
+            android:fontFamily="casual"
+            android:textSize="24sp"
+            android:text="0°F"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_c"
+            android:padding="25dp"
+            android:textColor="@color/Celcius"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="casual"
+            android:textSize="24sp"
+            android:text="0°C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:padding="50dp"
+        app:layout_constraintTop_toBottomOf="@id/layout1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_r"
+            android:padding="25dp"
+            android:text="0°R"
+            android:textColor="@color/Reamur"
+            android:textSize="24sp"
+            android:fontFamily="casual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_k"
+            android:padding="25dp"
+            android:textColor="@color/Kelvin"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="casual"
+            android:textSize="24sp"
+            android:text="0°K"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:layout_marginHorizontal="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/fahrenheit_symbol"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+        <TextView
+            android:fontFamily="casual"
+            android:text="Fahrenheit"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_marginHorizontal="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/celcius_symbol"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+        <TextView
+            android:text="Celcius"
+            android:fontFamily="casual"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_marginHorizontal="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/reamur_symbol"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+        <TextView
+            android:text="Reamur"
+            android:fontFamily="casual"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_marginHorizontal="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/kelvin_symbol"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+        <TextView
+            android:text="Kelvin"
+            android:fontFamily="casual"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
