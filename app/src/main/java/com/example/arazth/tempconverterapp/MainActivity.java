@@ -2,7 +2,6 @@ package com.example.arazth.tempconverterapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.arazth.tempconverterapp.Temperature.Unit;
 
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_k;
     EditText et_number;
     Button btn;
-
+    Spinner spinner;
     String spinner_item;
 
 
@@ -31,19 +29,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv_c = findViewById(R.id.tv_c);
-        tv_r = findViewById(R.id.tv_r);
-        tv_f = findViewById(R.id.tv_f);
-        tv_k = findViewById(R.id.tv_k);
-        et_number = findViewById(R.id.et_number);
-        btn = findViewById(R.id.btn);
 
+        bindViews();
+        setupSpinner();
+        setupBtn();
+    }
 
-        final Spinner spinner = findViewById(R.id.spinner);
-        final ArrayAdapter arrayAdapter = ArrayAdapter.createFromResource(this, R.array.temp_symbol, android.R.layout.simple_spinner_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
-
+    private void setupSpinner(){
+        spinner.setAdapter(createArrayAdapter());
         spinner_item = "Celcius";
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -56,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+    }
+    private void setupBtn(){
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,16 +60,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private ArrayAdapter createArrayAdapter(){
+        final ArrayAdapter result = ArrayAdapter.createFromResource(this, R.array.temp_symbol, android.R.layout.simple_spinner_item);
+        result.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return result;
+    }
+
+    private void bindViews(){
+        tv_c = findViewById(R.id.tv_c);
+        tv_r = findViewById(R.id.tv_r);
+        tv_f = findViewById(R.id.tv_f);
+        tv_k = findViewById(R.id.tv_k);
+        et_number = findViewById(R.id.et_number);
+        btn = findViewById(R.id.btn);
+        spinner = findViewById(R.id.spinner);
+    }
+
 
     private void convert(double n, String spinner_item) {
-        Unit.convert(spinner_item, n);
-        String degree = getResources().getString(R.string.degree_sybol);
+        Unit unit = new Unit();
+        unit.convert(spinner_item, n);
 
-
-        tv_c.setText(getString(R.string.result, Unit.celcius, 'C'));
-        tv_r.setText(getString(R.string.result, Unit.reamur, 'R'));
-        tv_f.setText(getString(R.string.result, Unit.fahrenheit, 'F'));
-        tv_k.setText(getString(R.string.result, Unit.kelvin, 'K'));
+        tv_c.setText(getString(R.string.result, unit.getCelcius(), 'C'));
+        tv_r.setText(getString(R.string.result, unit.getReamur(), 'R'));
+        tv_f.setText(getString(R.string.result, unit.getFahrenheit(), 'F'));
+        tv_k.setText(getString(R.string.result, unit.getKelvin(), 'K'));
     }
 
 

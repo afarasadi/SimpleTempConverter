@@ -1,12 +1,29 @@
 package com.example.arazth.tempconverterapp.Temperature;
 
+import com.example.arazth.tempconverterapp.R;
+
 public class Unit {
 
-    public static double fahrenheit, celcius, reamur, kelvin;
+    private double fahrenheit, celcius, reamur, kelvin;
 
-    public static void convert(String c, double number) {
-        double converted = 0;
-        switch (c) {
+    public double getFahrenheit() {
+        return fahrenheit;
+    }
+
+    public double getCelcius() {
+        return celcius;
+    }
+
+    public double getReamur() {
+        return reamur;
+    }
+
+    public double getKelvin() {
+        return kelvin;
+    }
+
+    public void convert(String unit, double number) {
+        switch (unit) {
             case "Celcius":
                 celcius = number;
                 reamur = 4 / 5.0 * number;
@@ -36,7 +53,8 @@ public class Unit {
                 reamur = 0;
                 kelvin = 0;
                 fahrenheit = 0;
-
         }
+
+
     }
 }
